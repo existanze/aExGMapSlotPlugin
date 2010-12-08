@@ -2,8 +2,9 @@
 
 <?php include_partial('a/simpleEditButton', array('name' => $name, 'pageid' => $pageid, 'permid' => $permid)) ?>
 
+<?php $gMap->setContainerAttributes(array('id' => "map-$name-$pageid-$permid")); ?>
 
-<?php include_map($gMap,array('width'=>'400px','height'=>'300px')); ?>
+<?php include_map($gMap,array('width'=>'100%','height'=>'300px')); ?>
 
  <!-- Javascript included at the bottom of the page -->
 <?php include_map_javascript($gMap); ?>

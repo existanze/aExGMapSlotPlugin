@@ -1,0 +1,26 @@
+requires
+
+http://svn.symfony-project.com/plugins/sfEasyGMapPlugin/branches/v3/
+
+This plugin adds a slot that displays a Google Map.
+
+INSTALLATION
+ - Edit config/ProjectConfiguration.class.php and add 'aExGMapSlotPlugin' to the enabled plugins list.
+ - Edit apps/frontend/config/settings.yml and add 'aExGoogleMapSlot' to the enabled_modules list.
+
+ - Edit app.yml and add aExGoogleMap in slot_types
+
+- Edit app.yml and the map api keys you got from Google. e.g.
+
+all:
+
+  google:
+    maps_api_keys:
+      localhost: ABQIAAAA4DfdUskbIkjSXXHEOG6U6BRbBm_rYrdNQgiZt4kLrukbeYA08hT9oTrx
+      www.existanze.com: ABQIAAAA4DfdUskbIkjSXXHEOG6U6BQ2aNue4v8nyRrqjKgUh8JbRwP8HRQF81T9c3cS
+
+
+ - Edit apostrophe's layout or template file and add 'aExGoogleMap' at the a_area allowed_types array.
+ - symfony doctrine:build-model
+ - symfony doctrine:build-forms
+ - symfony cc
