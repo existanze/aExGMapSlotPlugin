@@ -17,9 +17,11 @@ class aExGoogleMapSlotComponents extends BaseaSlotComponents
   {
     $this->setup();
     $this->values = $this->slot->getArrayValue();
-
-    $this->gMap = new GMap();
-     /**
+	$this->mapId = "map-$this->name-$this->pageid-$this->permid";
+    
+	$this->gMap = new GMap(array('control' => array('new google.maps.SmallMapControl()')), array('id' => $this->mapId));
+	$this->gMap->addAfterInitJs('map.setMapType(G_SATELLITE_MAP)');
+         /**
 	     * Existanze's Coordinates
 	     */
 	$this->gMap->setCenter(38.01814207469139,23.80458354949951);
@@ -30,12 +32,11 @@ class aExGoogleMapSlotComponents extends BaseaSlotComponents
 			/**
 			 * @var $this->gMap GMap
 			 */
-			$this->gMap->setOption('mapTypeId',$this->values['mapType']);
 
-			$location = new GMapMarker($this->values['latitude'],$this->values['longitude']);
 			$marker  = new GMapMarker($this->values['latitude'],$this->values['longitude']);
-			$marker->addHtmlInfoWindow(new GMapInfoWindow(htmlspecialchars($this->values['description'])));
+			$marker->addHtmlInfoWindow($this->values['description']);
 			$this->gMap->addMarker($marker);
+			$this->gMap->addEvent(new GMapEvent("infowindowclose","this.panTo(new google.maps.LatLng(".$this->values['latitude'].",".$this->values['longitude']."))"));
 			$this->gMap->setCenter($this->values['latitude'],$this->values['longitude']);
 
     }
