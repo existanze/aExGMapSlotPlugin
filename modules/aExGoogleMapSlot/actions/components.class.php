@@ -20,7 +20,6 @@ class aExGoogleMapSlotComponents extends BaseaSlotComponents
 	$this->mapId = "map-$this->name-$this->pageid-$this->permid";
     
 	$this->gMap = new GMap(array('control' => array('new google.maps.SmallMapControl()')), array('id' => $this->mapId));
-	$this->gMap->addAfterInitJs('map.setMapType(G_SATELLITE_MAP)');
          /**
 	     * Existanze's Coordinates
 	     */
