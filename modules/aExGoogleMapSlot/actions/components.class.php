@@ -33,7 +33,7 @@ class aExGoogleMapSlotComponents extends BaseaSlotComponents
 			 */
 
 			$marker  = new GMapMarker($this->values['latitude'],$this->values['longitude']);
-			$marker->addHtmlInfoWindow($this->values['description']);
+			$marker->addHtmlInfoWindow(new GMapInfoWindow($this->values['description']));
 			$this->gMap->addMarker($marker);
 			$this->gMap->addEvent(new GMapEvent("infowindowclose","this.panTo(new google.maps.LatLng(".$this->values['latitude'].",".$this->values['longitude']."))"));
 			$this->gMap->setCenter($this->values['latitude'],$this->values['longitude']);
