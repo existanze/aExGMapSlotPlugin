@@ -16,6 +16,8 @@ class aExGoogleMapSlotComponents extends BaseaSlotComponents
   public function executeNormalView()
   {
     $this->setup();
+    $this->options['width'] = $this->getOption('width', 300)."px";
+    $this->options['height'] = $this->getOption('height', 300)."px";
     $this->values = $this->slot->getArrayValue();
 	$this->mapId = "map-$this->name-$this->pageid-$this->permid";
     

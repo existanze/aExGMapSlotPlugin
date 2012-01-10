@@ -26,6 +26,7 @@ class aExGoogleMapSlotActions extends BaseaSlotActions
       // edit view so that validation errors can be seen, if any
       return $this->editRetry();
     }
+
   }
 }
   
